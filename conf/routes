@@ -1,0 +1,7 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+POST    /sign_up        controllers.account.AccountController.signUp(request: Request)
+POST    /sign_in        controllers.account.AccountController.signIn(request: Request)
