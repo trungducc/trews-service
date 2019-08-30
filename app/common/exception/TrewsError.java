@@ -9,6 +9,10 @@ public enum TrewsError {
 
     AUTHENTICATION_ERROR(401, "Username or password is wrong."),
 
+    MISSING_TOKEN_ERROR(401, "Token is missing."),
+
+    INVALID_TOKEN_ERROR(401, "Invalid token"),
+
     INTERNAL_SERVER_ERROR(500, "Internal Server Error.");
 
     private int code;

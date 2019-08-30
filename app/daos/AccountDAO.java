@@ -20,4 +20,8 @@ public class AccountDAO extends BaseDAO<Account> {
         return firstRecord("username", username);
     }
 
+    public Account findById(long id) {
+        return firstRecord("id", id);
+    }
+
 }

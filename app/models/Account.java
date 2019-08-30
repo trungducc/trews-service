@@ -1,6 +1,6 @@
 package models;
 
-import controllers.account.SignUpParameters;
+import services.account.SignUpParameters;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.Entity;
@@ -41,5 +41,20 @@ public class Account extends AbstractIdentifiable {
 
 	public void setHashedPassword(String hashedPassword) {
 		this.hashedPassword = hashedPassword;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (this == null) return false;
+		if (this.getClass() != obj.getClass()) return false;
+
+		Account account = (Account) obj;
+		return this.id == account.id && this.username.equals(account.username) && this.hashedPassword.equals(account.hashedPassword);
+	}
+
+	@Override
+	public int hashCode() {
+		return Long.hashCode(this.id);
 	}
 }

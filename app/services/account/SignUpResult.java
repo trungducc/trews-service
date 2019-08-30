@@ -1,17 +1,14 @@
-package controllers.account;
+package services.account;
 
 import models.Account;
 
-public class SignInResult {
+public class SignUpResult {
 
     private long id;
 
     private String username;
 
-    public SignInResult() {
-    }
-
-    public SignInResult(Account account) {
+    public SignUpResult(Account account) {
         this.id = account.getId();
         this.username = account.getUsername();
     }

@@ -1,15 +1,17 @@
-package controllers.account;
+package services.account;
 
-public class SignUpParameters {
+import common.Parameters;
+
+public class SignInParameters extends Parameters {
 
     private String username;
 
     private String password;
 
-    public SignUpParameters() {
+    public SignInParameters() {
     }
 
-    public SignUpParameters(String username, String password) {
+    public SignInParameters(String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -29,5 +31,4 @@ public class SignUpParameters {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

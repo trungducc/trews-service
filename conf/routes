@@ -3,5 +3,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-POST    /sign_up        controllers.account.AccountController.signUp(request: Request)
-POST    /sign_in        controllers.account.AccountController.signIn(request: Request)
+POST    /sign_up             controllers.AccountController.signUp(request: Request)
+POST    /sign_in             controllers.AccountController.signIn(request: Request)
+
+POST    /trews/create        controllers.TrewsController.create(request: Request)

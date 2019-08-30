@@ -45,7 +45,7 @@ public class Response<T> {
     }
 
     public static <T> CompletionStage<Result> make(CompletionStage<T> completionStage) {
-        return completionStage.handleAsync((result, exception) -> {
+        return completionStage.handle((result, exception) -> {
             return Results.ok(Json.toJson(new Response<T>(result, exception)));
         });
     }

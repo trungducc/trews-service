@@ -32,10 +32,10 @@ public class BaseDAO<T> {
         return o;
     }
 
-    public T firstRecord(String column, String value) {
+    public T firstRecord(String column, Object object) {
         return jpaApi.withTransaction(em -> {
             String qlString = "select t from " + clazz.getSimpleName() + " t where t." + column + " = :" + column;
-            Query query = em.createQuery(qlString).setParameter(column, value);
+            Query query = em.createQuery(qlString).setParameter(column, object);
             List<T> result = query.getResultList();
             return result.isEmpty() ? null : detach(result.get(0));
         });
