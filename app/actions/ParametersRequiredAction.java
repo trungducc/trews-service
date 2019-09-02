@@ -38,7 +38,7 @@ public class ParametersRequiredAction extends Action<ParametersRequired> {
     private Account getBearer(Http.Request request) {
         boolean bearerRequired = false;
         try {
-            bearerRequired = configuration.type().getField(PARAMETERS_BEARER_FIELD) != null;
+            bearerRequired = configuration.type().getDeclaredField(PARAMETERS_BEARER_FIELD) != null;
         } catch (Exception e) {
         }
 

@@ -2,6 +2,7 @@ package daos;
 
 import play.db.jpa.JPAApi;
 
+import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -30,6 +31,13 @@ public class BaseDAO<T> {
             });
         }
         return o;
+    }
+
+    protected <I extends Iterable<T>> I detachAll(I all) {
+        for (T t : all) {
+            detach(t);
+        }
+        return all;
     }
 
     public T firstRecord(String column, Object object) {

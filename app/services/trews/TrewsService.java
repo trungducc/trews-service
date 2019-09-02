@@ -4,6 +4,8 @@ import daos.TrewsDAO;
 import models.Trews;
 
 import javax.inject.Inject;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 public class TrewsService {
@@ -16,7 +18,14 @@ public class TrewsService {
     }
 
     public CompletionStage<Trews> create(CreateTrewsParameters parameters) {
-        return null;
+        Trews newTrews = new Trews(parameters);
+        trewsDAO.create(newTrews);
+        return CompletableFuture.completedFuture(newTrews);
+    }
+
+    public CompletionStage<List<Trews>> list(ListTrewsParameters parameters) {
+        List<Trews> trews = trewsDAO.find(parameters);
+        return CompletableFuture.completedFuture(trews);
     }
 
 }

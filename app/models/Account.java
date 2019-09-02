@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import services.account.SignUpParameters;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -10,6 +11,7 @@ public class Account extends AbstractIdentifiable {
 
 	private String username;
 
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String hashedPassword;
 
 	public Account() {
