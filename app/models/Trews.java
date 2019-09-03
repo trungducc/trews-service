@@ -13,12 +13,18 @@ public class Trews extends AbstractIdentifiable {
     @ManyToOne
     private Account user;
 
+    private long likeCount;
+
+    private long dislikeCount;
+
     public Trews() {
     }
 
     public Trews(CreateTrewsParameters parameters) {
         this.title = parameters.getTitle();
         this.user = parameters.getBearer();
+        this.likeCount = 0;
+        this.dislikeCount = 0;
     }
 
     public Account getUser() {
@@ -35,6 +41,22 @@ public class Trews extends AbstractIdentifiable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public long getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(long likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public long getDislikeCount() {
+        return dislikeCount;
+    }
+
+    public void setDislikeCount(long dislikeCount) {
+        this.dislikeCount = dislikeCount;
     }
 
 }

@@ -24,6 +24,24 @@ public class BaseDAO<T> {
         });
     }
 
+    public T update(T o) {
+        return jpaApi.withTransaction(em -> {
+            T merged = em.merge(o);
+            em.flush();
+            detach(o);
+            return o;
+        });
+    }
+
+    public void delete(T o) {
+        if (o != null) {
+            jpaApi.withTransaction(em -> {
+                em.remove(em.merge(o));
+                em.flush();
+            });
+        }
+    }
+
     protected T detach(T o) {
         if (o != null) {
             jpaApi.withTransaction(em -> {

@@ -12,6 +12,7 @@
 
 		<class>models.Account</class>
 		<class>models.Trews</class>
+		<class>models.Reaction</class>
 
 		<properties>
 			<property name="eclipselink.ddl-generation" value="create-tables"/>

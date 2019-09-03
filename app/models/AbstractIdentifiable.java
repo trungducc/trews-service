@@ -1,9 +1,7 @@
 package models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+import java.util.Date;
 
 @MappedSuperclass
 public abstract class AbstractIdentifiable {
@@ -11,6 +9,8 @@ public abstract class AbstractIdentifiable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
+
+    protected Date createdDate;
 
     protected AbstractIdentifiable() {
     }
@@ -25,6 +25,19 @@ public abstract class AbstractIdentifiable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdDate = new Date();
     }
 
 }

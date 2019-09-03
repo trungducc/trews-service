@@ -8,3 +8,5 @@ POST    /account/sign_in            controllers.AccountController.signIn(request
 
 POST    /trews/create               controllers.TrewsController.create(request: Request)
 GET     /trews/list                 controllers.TrewsController.list(request: Request)
+
+POST    /trews/react                controllers.TrewsController.react(request: Request)

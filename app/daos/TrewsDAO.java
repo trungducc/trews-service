@@ -17,7 +17,7 @@ public class TrewsDAO extends BaseDAO<Trews> {
 
     public List<Trews> find(ListTrewsParameters parameters) {
         return jpaApi.withTransaction(em -> {
-            String qlString = "select t from Trews t";
+            String qlString = "select t from Trews t order by t.createdDate desc";
             Query query = em.createQuery(qlString);
             List<Trews> result = query.getResultList();
             return result;

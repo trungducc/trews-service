@@ -64,7 +64,7 @@ public class AccountService {
             return null;
         }
 
-        if (account != null && account.equals(accountDAO.findById(account.getId()))) {
+        if (account != null && accountDAO.usernameExists(account.getUsername())) {
             return account;
         }
         return null;
